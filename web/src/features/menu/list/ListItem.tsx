@@ -15,13 +15,13 @@ interface Props {
 
 const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   buttonContainer: {
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: 'rgba(37, 38, 43, 0.85)',
     borderRadius: theme.radius.md,
     padding: 2,
     height: 60,
     scrollMargin: 8,
     '&:focus': {
-      backgroundColor: theme.colors.dark[4],
+      backgroundColor: 'rgba(37, 38, 43, 1)',
       outline: 'none',
     },
   },
@@ -41,7 +41,7 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   },
   icon: {
     fontSize: 24,
-    color: params.iconColor || theme.colors.dark[2],
+    color: 'rgba(255, 255, 255, 0.85)',
   },
   label: {
     color: theme.colors.dark[2],
@@ -67,6 +67,25 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
     marginBottom: 3,
   },
 }));
+
+// 0% -> rouge, 100% -> blanc
+const getProgressColor = (value: number) => {
+  // Clamp pour être sûr que value soit entre 0 et 100
+  const progress = Math.min(100, Math.max(0, value));
+
+  // Rouge de départ (R=255, G=0, B=0)
+  const start = { r: 255, g: 0, b: 0 };
+
+  // Blanc de fin (R=255, G=255, B=255)
+  const end = { r: 255, g: 255, b: 255 };
+
+  // Interpolation linéaire
+  const r = Math.round(start.r + ((end.r - start.r) * progress) / 100);
+  const g = Math.round(start.g + ((end.g - start.g) * progress) / 100);
+  const b = Math.round(start.b + ((end.b - start.b) * progress) / 100);
+
+  return `rgb(${r}, ${g}, ${b})`;
+};
 
 const ListItem = forwardRef<Array<HTMLDivElement | null>, Props>(({ item, index, scrollIndex, checked }, ref) => {
   const { classes } = useStyles({ iconColor: item.iconColor });
@@ -104,7 +123,7 @@ const ListItem = forwardRef<Array<HTMLDivElement | null>, Props>(({ item, index,
               <Text>
                 {typeof item.values[scrollIndex] === 'object'
                   ? // @ts-ignore for some reason even checking the type TS still thinks it's a string
-                    item.values[scrollIndex].label
+                  item.values[scrollIndex].label
                   : item.values[scrollIndex]}
               </Text>
             </Stack>
@@ -124,11 +143,24 @@ const ListItem = forwardRef<Array<HTMLDivElement | null>, Props>(({ item, index,
         ) : item.progress !== undefined ? (
           <Stack className={classes.progressStack} spacing={0}>
             <Text className={classes.progressLabel}>{item.label}</Text>
-            <Progress
-              value={item.progress}
-              color={item.colorScheme || 'dark.0'}
-              styles={(theme) => ({ root: { backgroundColor: theme.colors.dark[3] } })}
-            />
+            <Group spacing={5} align="center">
+
+              {/* Barre de progression */}
+              <Progress
+                value={item.progress}
+                styles={{
+                  root: {
+                    backgroundColor: 'rgba(20,20,20,0.85)',
+                    flex: 1, // prend toute la place disponible
+                    minWidth: 50, // pour être sûr qu'elle ait une largeur
+                  },
+                  bar: {
+                    backgroundColor: getProgressColor(item.progress),
+                    borderRadius: 4,
+                  },
+                }}
+              />
+            </Group>
           </Stack>
         ) : (
           <Text>{item.label}</Text>

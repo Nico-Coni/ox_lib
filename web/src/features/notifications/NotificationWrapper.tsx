@@ -12,8 +12,8 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: 300,
     height: 'fit-content',
-    backgroundColor: theme.colors.dark[6],
-    color: theme.colors.dark[0],
+    backgroundColor: 'rgba(5, 5, 5, 0.95)',
+    color: '#fff',
     padding: 12,
     borderRadius: theme.radius.sm,
     fontFamily: 'Roboto',
@@ -25,13 +25,13 @@ const useStyles = createStyles((theme) => ({
   },
   description: {
     fontSize: 12,
-    color: theme.colors.dark[2],
+    color: theme.colors.gray[4],
     fontFamily: 'Roboto',
     lineHeight: 'normal',
   },
   descriptionOnly: {
     fontSize: 14,
-    color: theme.colors.dark[2],
+    color: theme.colors.gray[4],
     fontFamily: 'Roboto',
     lineHeight: 'normal',
   },
@@ -53,7 +53,7 @@ const getAnimation = (visible: boolean, position: string) => {
   let animation: { from: string; to: string };
 
   if (visible) {
-    animation = position.includes('bottom') ? { from: 'Y(30px)', to: 'Y(0px)' } : { from: 'Y(-30px)', to:'Y(0px)' };
+    animation = position.includes('bottom') ? { from: 'Y(30px)', to: 'Y(0px)' } : { from: 'Y(-30px)', to: 'Y(0px)' };
   } else {
     if (position.includes('right')) {
       animation = { from: 'X(0px)', to: 'X(100%)' }

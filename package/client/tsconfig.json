@@ -2,8 +2,14 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": ".",
-    "types": ["@citizenfx/client"]
+    "types": [
+      "@citizenfx/client"
+    ]
   },
-  "include": ["./**/*"],
-  "exclude": ["**/node_modules"]
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "**/node_modules"
+  ]
 }

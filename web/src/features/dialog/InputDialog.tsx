@@ -48,11 +48,11 @@ const InputDialog: React.FC = () => {
             row.type !== 'checkbox'
               ? row.type === 'date' || row.type === 'date-range' || row.type === 'time'
                 ? // Set date to current one if default is set to true
-                  row.default === true
+                row.default === true
                   ? new Date().getTime()
                   : Array.isArray(row.default)
-                  ? row.default.map((date) => new Date(date).getTime())
-                  : row.default && new Date(row.default).getTime()
+                    ? row.default.map((date) => new Date(date).getTime())
+                    : row.default && new Date(row.default).getTime()
                 : row.default
               : row.checked,
         } || { value: null }

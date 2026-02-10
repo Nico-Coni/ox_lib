@@ -9,8 +9,8 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: 350,
     height: 45,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.dark[5],
+    borderRadius: theme.radius.xl,
+    backgroundColor: 'rgba(37, 38, 43, 0.35)',
     overflow: 'hidden',
   },
   wrapper: {
@@ -24,7 +24,7 @@ const useStyles = createStyles((theme) => ({
   },
   bar: {
     height: '100%',
-    backgroundColor: theme.colors[theme.primaryColor][theme.fn.primaryShade()],
+    backgroundColor: 'rgba(37, 38, 43, 0.85)',
   },
   labelWrapper: {
     position: 'absolute',

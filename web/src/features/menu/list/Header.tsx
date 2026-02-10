@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
     textAlign: 'center',
     borderTopLeftRadius: theme.radius.md,
     borderTopRightRadius: theme.radius.md,
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: 'rgba(37, 38, 43, 0.35)',
     height: 60,
     width: 384,
     display: 'flex',
@@ -17,6 +17,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: 24,
     textTransform: 'uppercase',
     fontWeight: 500,
+    color: theme.colors.gray[0],
   },
 }));
 
