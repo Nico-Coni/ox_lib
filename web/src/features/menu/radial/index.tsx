@@ -182,7 +182,7 @@ const RadialMenu: React.FC = () => {
         >
           {/* --- BOUCLE 1 : TUILES --- */}
           {menuItems.map((item, index) => {
-            const pieAngle = 360 / (menuItems.length < 3 ? 3 : menuItems.length);
+            const pieAngle = 360 / Math.max(1, menuItems.length);;
             const startAngle = degToRad(-0.1);
             const endAngle = degToRad(pieAngle + 0.1);
             const innerRadius = 55;
@@ -230,7 +230,7 @@ const RadialMenu: React.FC = () => {
 
           {/* --- BOUCLE 2 : CONTENU --- */}
           {menuItems.map((item, index) => {
-            const pieAngle = 360 / (menuItems.length < 3 ? 3 : menuItems.length);
+            const pieAngle = 360 / Math.max(1, menuItems.length);;
             const radius = 120;
             const angle = degToRad(pieAngle / 2);
             const iconX = 175 + radius * Math.cos(angle);

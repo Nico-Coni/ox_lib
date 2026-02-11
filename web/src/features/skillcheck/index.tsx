@@ -27,8 +27,8 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
   },
   track: {
     fill: 'transparent',
-    stroke: theme.colors.dark[5],
-    strokeWidth: 8,
+    stroke: 'rgba(5,5,5,0.9)',
+    strokeWidth: 10,
     r: 50,
     cx: 250,
     cy: 250,
@@ -41,8 +41,9 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
   },
   skillArea: {
     fill: 'transparent',
-    stroke: theme.fn.primaryColor(),
-    strokeWidth: 8,
+    stroke: 'rgba(12, 104, 225, 0.7)',
+    filter: 'drop-shadow(0 0 12px rgba(12, 104, 225, 0.7))',
+    strokeWidth: 10,
     r: 50,
     cx: 250,
     cy: 250,
@@ -56,19 +57,20 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
     },
   },
   indicator: {
-    stroke: 'red',
-    strokeWidth: 16,
+    stroke: theme.colors.orange[7],
+    strokeWidth: 9,
+    strokeLinecap: 'round',
     fill: 'transparent',
     r: 50,
     cx: 250,
     cy: 250,
-    strokeDasharray: circleCircumference,
-    strokeDashoffset: circleCircumference - 3,
+    strokeDasharray: circleCircumference - 1,
+    strokeDashoffset: circleCircumference - 1,
     '@media (min-height: 1440px)': {
       strokeWidth: 18,
       r: 65,
-      strokeDasharray: 2 * 65 * Math.PI,
-      strokeDashoffset: 2 * 65 * Math.PI - 5,
+      strokeDasharray: 2 * 65 * Math.PI - 1,
+      strokeDashoffset: 2 * 65 * Math.PI - 1,
     },
   },
   button: {
@@ -76,12 +78,13 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
     left: '50%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: theme.colors.dark[5],
-    width: 25,
-    height: 25,
+    backgroundColor: 'rgba(5, 5, 5, 0.9)',
+    width: 30,
+    height: 30,
+    paddingTop: 2,
     textAlign: 'center',
-    borderRadius: 5,
-    fontSize: 16,
+    borderRadius: 10,
+    fontSize: 15,
     fontWeight: 500,
     display: 'flex',
     justifyContent: 'center',
@@ -171,10 +174,10 @@ const SkillCheck: React.FC = () => {
                 skillCheck.difficulty === 'easy'
                   ? 1
                   : skillCheck.difficulty === 'medium'
-                  ? 1.5
-                  : skillCheck.difficulty === 'hard'
-                  ? 1.75
-                  : skillCheck.difficulty.speedMultiplier
+                    ? 1.5
+                    : skillCheck.difficulty === 'hard'
+                      ? 1.75
+                      : skillCheck.difficulty.speedMultiplier
               }
               handleComplete={handleComplete}
               className={classes.indicator}

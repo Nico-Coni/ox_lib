@@ -24,15 +24,15 @@ export const debugMenu = () => {
           },
           {
             label: 'Oil Level',
-            progress: 30,
+            progress: 5,
             icon: 'oil-can',
             description: 'Remaining Oil: 30%',
           },
           {
             label: 'Durability',
-            progress: 80,
+            progress: 95,
             icon: 'car-side',
-            description: 'Durability: 80%',
+            description: 'Durability: 85%',
             colorScheme: 'blue',
             iconColor: '#55778d',
           },

@@ -71,9 +71,6 @@ importers:
       tinycolor2:
         specifier: ^1.6.0
         version: 1.6.0
-      typescript:
-        specifier: ^4.6.3
-        version: 4.9.5
       vite:
         specifier: ^5.1.8
         version: 5.4.21(@types/node@20.19.30)
@@ -120,6 +117,9 @@ importers:
       rimraf:
         specifier: ^3.0.2
         version: 3.0.2
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
 packages:
 
@@ -1348,9 +1348,9 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  typescript@4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   undici-types@6.21.0:
@@ -2874,7 +2874,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  typescript@4.9.5: {}
+  typescript@5.9.3: {}
 
   undici-types@6.21.0: {}
 

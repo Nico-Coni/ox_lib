@@ -43,6 +43,7 @@ const InputDialog: React.FC = () => {
     data.rows.forEach((row, index) => {
       fieldForm.insert(
         index,
+        // @ts-ignore: TS5.0+ sees this object as always truthy
         {
           value:
             row.type !== 'checkbox'

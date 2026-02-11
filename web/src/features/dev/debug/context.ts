@@ -17,8 +17,8 @@ export const debugContext = () => {
             metadata: [
               {
                 ['label']: 'Body',
-                ['value']: '55%',
-                ['progress']: 55,
+                ['value']: '40%',
+                ['progress']: 40,
                 colorScheme: 'red',
               },
               {
@@ -33,7 +33,7 @@ export const debugContext = () => {
               },
               {
                 ['label']: 'Fuel',
-                ['progress']: 87,
+                ['progress']: 75,
               },
             ],
           },
@@ -48,17 +48,17 @@ export const debugContext = () => {
           {
             title: 'Oil Level',
             description: 'Vehicle oil level',
-            progress: 30,
+            progress: 20,
             icon: 'oil-can',
-            metadata: [{ label: 'Remaining Oil', value: '30%' }],
+            metadata: [{ label: 'Remaining Oil', value: '20%', progress: 20 }],
             arrow: true,
           },
           {
             title: 'Durability',
-            progress: 80,
+            progress: 90,
             icon: 'car-side',
-            metadata: [{ label: 'Durability', value: '80%' }],
-            colorScheme: 'blue',
+            metadata: [{ label: 'Durability', value: '90%' }],
+
           },
           {
             title: 'Menu button',

@@ -74,10 +74,10 @@ const getProgressColor = (value: number) => {
   const progress = Math.min(100, Math.max(0, value));
 
   // Rouge de départ (R=255, G=0, B=0)
-  const start = { r: 255, g: 0, b: 0 };
+  const start = { r: 255, g: 165, b: 0 };
 
   // Blanc de fin (R=255, G=255, B=255)
-  const end = { r: 255, g: 255, b: 255 };
+  const end = { r: 5, g: 120, b: 255 };
 
   // Interpolation linéaire
   const r = Math.round(start.r + ((end.r - start.r) * progress) / 100);

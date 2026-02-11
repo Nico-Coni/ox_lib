@@ -14,21 +14,21 @@ const useStyles = createStyles((theme, params: { position?: TextUiPosition }) =>
     width: '100%',
     position: 'absolute',
     display: 'flex',
-    alignItems: 
+    alignItems:
       params.position === 'top-center' ? 'baseline' :
-      params.position === 'bottom-center' ? 'flex-end' : 'center',
-    justifyContent: 
+        params.position === 'bottom-center' ? 'flex-end' : 'center',
+    justifyContent:
       params.position === 'right-center' ? 'flex-end' :
-      params.position === 'left-center' ? 'flex-start' : 'center',
+        params.position === 'left-center' ? 'flex-start' : 'center',
   },
   container: {
     fontSize: 16,
     padding: 12,
     margin: 8,
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: 'rgba(5, 5, 5, 0.9)',
     color: theme.colors.dark[0],
     fontFamily: 'Roboto',
-    borderRadius: theme.radius.sm,
+    borderRadius: 10,
     boxShadow: theme.shadows.sm,
   },
 }));

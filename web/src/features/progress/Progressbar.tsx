@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     width: 350,
     height: 45,
     borderRadius: theme.radius.xl,
-    backgroundColor: 'rgba(37, 38, 43, 0.35)',
+    backgroundColor: 'rgba(5, 5, 5, 0.9)',
     overflow: 'hidden',
   },
   wrapper: {
@@ -21,13 +21,37 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     bottom: 0,
     position: 'absolute',
+    padding: 20,
+  },
+  relativeBox: {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+  },
+  glowBar: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    transformOrigin: 'left',
+    borderRadius: theme.radius.xl,
+    filter: `
+    drop-shadow(0 0 15px rgba(12, 104, 225, 1))
+    drop-shadow(0 0 30px rgba(12, 104, 225, 0.7))
+    `,
+    backgroundColor: 'rgba(12, 104, 225, 0.1)',
   },
   bar: {
     height: '100%',
-    backgroundColor: 'rgba(37, 38, 43, 0.85)',
+    backgroundColor: 'rgba(12, 104, 225, 0.35)',
+    borderRadius: theme.radius.xl,
+    transformOrigin: 'left',
   },
   labelWrapper: {
     position: 'absolute',
+    inset: 0,
     display: 'flex',
     width: 350,
     height: 45,
@@ -64,17 +88,26 @@ const Progressbar: React.FC = () => {
     <>
       <Box className={classes.wrapper}>
         <ScaleFade visible={visible} onExitComplete={() => fetchNui('progressComplete')}>
-          <Box className={classes.container}>
+          <Box className={classes.relativeBox}>
             <Box
-              className={classes.bar}
-              onAnimationEnd={() => setVisible(false)}
+              className={classes.glowBar}
               sx={{
                 animation: 'progress-bar linear',
                 animationDuration: `${duration}ms`,
               }}
-            >
-              <Box className={classes.labelWrapper}>
-                <Text className={classes.label}>{label}</Text>
+            />
+            <Box className={classes.container}>
+              <Box
+                className={classes.bar}
+                onAnimationEnd={() => setVisible(false)}
+                sx={{
+                  animation: 'progress-bar linear',
+                  animationDuration: `${duration}ms`,
+                }}
+              >
+                <Box className={classes.labelWrapper}>
+                  <Text className={classes.label}>{label}</Text>
+                </Box>
               </Box>
             </Box>
           </Box>

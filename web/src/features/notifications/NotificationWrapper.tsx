@@ -12,10 +12,10 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: 300,
     height: 'fit-content',
-    backgroundColor: 'rgba(5, 5, 5, 0.95)',
+    backgroundColor: 'rgba(5, 5, 5, 0.90)',
     color: '#fff',
     padding: 12,
-    borderRadius: theme.radius.sm,
+    borderRadius: 10,
     fontFamily: 'Roboto',
     boxShadow: theme.shadows.sm,
   },
